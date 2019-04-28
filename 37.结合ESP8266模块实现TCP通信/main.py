@@ -27,9 +27,8 @@ if __name__  == '__main__':
                 break
             elif buf.find('ATOK') > -1:
                 # 说明AT指令执行成功
-                #if 'ATOK' in buf:
                 # 成功进入AT指令模式
-                # 设置WIFI模式
+                # 设置WIFI模式为sta模式
                 sendToUart(CWMODE_CUR)
             elif buf.find(CWMODE_CUR) > -1:
                 # 设置sta模式成功，连接AP
@@ -37,7 +36,7 @@ if __name__  == '__main__':
                 LED(1).on()
             elif buf.find('WIFIGOTIP') > -1:
                 # 连接AP成功
-                # 连接TCP Server成功，发送数据
+                # 开始连接TCP Server
                 pyb.delay(150)
                 sendToUart(CIPSTART)
                 LED(2).on()
