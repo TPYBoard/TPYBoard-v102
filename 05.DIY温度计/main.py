@@ -1,6 +1,6 @@
 import pyb
 from pyb import Pin
-from ds18x20 import DS18X20
+from ds18b20 import DS18X20
 from pyb import Timer
 
 x_PIN = [Pin(i, Pin.OUT_PP) for i in ['X1','X2','X3','X4','X5','X6','X7','X8']]

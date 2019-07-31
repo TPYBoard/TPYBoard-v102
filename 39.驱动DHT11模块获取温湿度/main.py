@@ -4,11 +4,12 @@ from dht11 import DHT11
 
 dht = DHT11('X12')
 def readTaHData():
-    DATA = dht.read_data()#¶ÁÈ¡ÎÂÊª¶ÈµÄÖµ
-    print(DATA[0],'¡æ')
+    DATA = dht.read_data()#è¯»å–æ¸©æ¹¿åº¦çš„å€¼
+    print(DATA[0],'â„ƒ')
     print(DATA[1],'%')
 while True:
     readTaHData()
+    pyb.delay(1000)
     
    
    
