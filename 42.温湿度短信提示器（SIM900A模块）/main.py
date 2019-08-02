@@ -42,6 +42,7 @@ if __name__ == '__main__':
                         if NUM == 6:
                             Wait = True
                             print('等待新短息的到来......')
+                            pyb.LED(2).on()
                 elif revData.find(b'+CPIN: READY') > -1: #表明SIM卡状态正常
                     NUM = 2 
                     print('SIM卡状态正常')
@@ -62,12 +63,14 @@ if __name__ == '__main__':
                         print('指定短信接收成功')
                 elif revData.find(b'+CMGS:') > -1:
                     print('短信发送成功')
+                    pyb.LED(4).on()
             elif revData.find(b'+CMTI') > -1:#有新短息来了
                     Wait = False
                     ID = revData.split(b',')[-1]  #获取新短息在SIM卡的位置编号
                     NUM = 7
                     CMD[NUM] = 'AT+CMGR=' + ID.decode()
                     print('来了条新短息')
+                    pyb.LED(3).on()
             elif revData.find(b'>') > -1:
                     print('编辑短信并发送')
                     dhtData = dht.read_data() #采集温湿度信息
