@@ -1,16 +1,25 @@
 """
 OneWire library ported to MicroPython by Jason Hildebrand.
+
+
 TODO: 
   * implement and test parasite-power mode (as an init option)
   * port the crc checks
+
 The original upstream copyright and terms follow.
 ------------------------------------------------------------------------------
+
 Copyright (c) 2007, Jim Studt (original old version - many contributors since)
+
 OneWire has been maintained by Paul Stoffregen (paul@pjrc.com) since
 January 2010.
+
 26 Sept 2008 -- Robin James
+
 Jim Studt's original library was modified by Josh Larios.
+
 Tom Pollard, pollard@alum.mit.edu, contributed around May 20, 2008
+
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 "Software"), to deal in the Software without restriction, including
@@ -18,8 +27,10 @@ without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
+
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -27,6 +38,7 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 Much of the code was inspired by Derek Yerger's code, though I don't
 think much of that remains.  In any event that was..
     (copyleft) 2006 by Derek Yerger - Free to distribute freely.
@@ -56,6 +68,7 @@ class OneWire:
         """
         Perform the onewire reset function.
         Returns 1 if a device asserted a presence pulse, 0 otherwise.
+
         If you receive 0, then check your wiring and make sure you are providing
         power and ground to your devices.
         """

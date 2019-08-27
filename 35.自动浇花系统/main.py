@@ -1,5 +1,5 @@
 from pyb import Pin, ADC
-from ds18x20 import DS18X20
+from ds18b20 import DS18X20
 
 gl = ADC(Pin('Y12'))		#300亮-1700暗
 sd = ADC(Pin('Y11'))		#1800干-800湿

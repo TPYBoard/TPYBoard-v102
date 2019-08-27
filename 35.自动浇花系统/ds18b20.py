@@ -1,32 +1,43 @@
 """
 DS18x20 temperature sensor driver for MicroPython.
+
 This driver uses the OneWire driver to control DS18S20 and DS18B20
 temperature sensors.  It supports multiple devices on the same 1-wire bus.
+
 The following example assumes the ground of your DS18x20 is connected to
 Y11, vcc is connected to Y9 and the data pin is connected to Y10.
+
 >>> from pyb import Pin
 >>> gnd = Pin('Y11', Pin.OUT_PP)
 >>> gnd.low()
 >>> vcc = Pin('Y9', Pin.OUT_PP)
 >>> vcc.high()
+
 >>> from ds18x20 import DS18X20
 >>> d = DS18X20(Pin('Y10'))
+
 Call read_temps to read all sensors:
+
 >>> result = d.read_temps()
 >>> print(result)
 [20.875, 20.8125]
+
 Call read_temp to read the temperature of a specific sensor:
+
 >>> result = d.read_temp(d.roms[0])
 >>> print(result)
 20.25
+
 If only one DS18x20 is attached to the bus, then you don't need to 
 pass a ROM to read_temp:
+
 >>> result = d.read_temp()
 >>> print(result)
 20.25
+
 """
 
-from onewire import OneWire
+from onewire_lib import OneWire
 
 class DS18X20(object):
     def __init__(self, pin):
